@@ -1,25 +1,19 @@
 #!/usr/bin/python3
-"""
-    0-main
-    This script uses the pascal_triangle function 
-    to generate and print Pascal's Triangle.
-"""
+""" If n is less than or equal to 0, return an empty list"""
 
-""" Import the pascal_triangle function from the 0-pascal_triangle module """
-pascal_triangle = __import__('0-pascal_triangle').pascal_triangle
 
-def print_triangle(triangle):
+def pascal_triangle(n):
     """
-        Print the triangle
-        This function takes a list of lists of integers
-        (representing Pascal's Triangle)
-        and prints it in a human-readable format.
+        If n is less than or equal to 0, return an empty list
     """
-    for row in triangle:
-        print("[{}]".format(",".join([str(x) for x in row])))
-
-
-if __name__ == "__main__":
-    """ Generate Pascal's Triangle with 5 levels and print it """
-    print_triangle(pascal_triangle(5))
+    if n <= 0:
+        return []
+    triangle = [[1]]
+    for i in range(1, n):
+        row = [1]
+        last_row = triangle[-1]
+        row += [sum(pair) for pair in zip(last_row, last_row[1:])]
+        row.append(1)
+        triangle.append(row)
+    return triangle
 
