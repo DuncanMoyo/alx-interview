@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-""" If n is less than or equal to 0, return an empty list"""
+"""
+    This script uses the pascal_triangle function
+    to generate and print Pascal's Triangle.
+"""
 
 
 def pascal_triangle(n):
     """
-        If n is less than or equal to 0, return an empty list
+        Print the triangle
+        This function takes a list of lists of integers
+        (representing Pascal's Triangle)
+        and prints it in a human-readable format.
     """
     if n <= 0:
         return []
@@ -16,4 +22,3 @@ def pascal_triangle(n):
         row.append(1)
         triangle.append(row)
     return triangle
-
