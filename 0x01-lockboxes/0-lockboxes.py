@@ -1,6 +1,11 @@
+#!/usr/bin/python3
+"""
+    Determines whether all boxes can be unlocked using the available keys.
+"""
+
+
 def canUnlockAll(boxes):
     """
-        Determines whether all boxes can be unlocked using the available keys.
         Args:
         boxes: A list of lists, where each inner list represents
         the keys contained in a box.
