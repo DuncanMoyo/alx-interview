@@ -1,27 +1,24 @@
 #!/usr/bin/python3
 
-
-def minOperations(n):
+def minOperations(target_chars):
     """
-        Calculates the minimum number of operations required to reduce
-        a positive integer n to 1.
-        An operation is defined as subtracting 1 or dividing by an integer
-        divisor.
-
-        Args:
-            n: A positive integer.
-
-        Returns:
-            The minimum number of operations required to reduce n to 1.
+        A function that calculates the fewest number of operations
+        needed to give a result of exactly n H characters in a file
+        args: target_chars: Number of characters to be displayed
+        return:
+               number of min operations
     """
 
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
-
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return i + minOperations(n // i)
-
-    return n
+    current_chars = 1
+    copied_chars = 0
+    operation_count = 0
+    while current_chars < target_chars:
+        remaining_chars = target_chars - current_chars
+        if (remaining_chars % current_chars == 0):
+            copied_chars = current_chars
+            current_chars += copied_chars
+            operation_count += 2
+        else:
+            current_chars += copied_chars
+            operation_count += 1
+    return operation_count
